@@ -1,7 +1,10 @@
+import { useSession, signIn, signOut } from 'next-auth/react';
+
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 
 const Index = () => {
+  const { data: session } = useSession();
   return (
     <Main
       meta={
@@ -11,7 +14,17 @@ const Index = () => {
         />
       }
     >
-      Hello
+      {session ? (
+        <>
+          Signed in as {session.user?.email} <br />
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
+      ) : (
+        <>
+          Not signed in <br />
+          <button onClick={() => signIn()}>Sign in</button>
+        </>
+      )}
     </Main>
   );
 };
