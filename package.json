@@ -27,6 +27,7 @@
     "chromatic": "npx chromatic --exit-zero-on-changes buildScriptName=build:storybook"
   },
   "dependencies": {
+    "@chanhly/cui": "https://github.com/ChanhLySolutions/cui",
     "@sentry/nextjs": "^6.11.0",
     "http-status-codes": "^2.1.4",
     "next": "^11.1.2",
